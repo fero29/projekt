@@ -64,7 +64,7 @@ camera = cv2.VideoCapture(0)
 if(camera.isOpened()):
   print("camera opened")
 else:
-  print("camera error")
+  print("camera")
 
   
 
@@ -79,8 +79,9 @@ for i in range(100):
         
         #camera.capture(stream, 'rgb',use_video_port=True)
         ret, frame = camera.read()
-        #stream = cv2.cvtColor(frame, cv2.COLOR_RGB2RGB)
-        img = scale_image(frame)
+        stream = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+        stream = cv2.cvtColor(stream, cv2.COLOR_BGR2RGB)
+        img = scale_image(stream)
         
         time_elapsed(start_t1,"camera capture")
         #----------------------------------------------------------------

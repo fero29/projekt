@@ -62,10 +62,6 @@ threshold=0.5
 camera = cv2.VideoCapture(0)
 
 
-for i in range(10):
-    return_value, image = camera.read()
-
-
 
 for i in range(10):
         start_time = time.time()
@@ -75,7 +71,8 @@ for i in range(10):
         stream = np.empty((480, 640, 3), dtype=np.uint8)
         
         #camera.capture(stream, 'rgb',use_video_port=True)
-        image = camera.read()
+        ret, frame = camera.read()
+        image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         img = scale_image(image)
         
         time_elapsed(start_t1,"camera capture")
@@ -102,15 +99,13 @@ for i in range(10):
         lbl_max=labels[top_k_indices[0]]
         
         
-        #take action based on maximum prediction value
-        if (pred_max < threshold):
-                camera.annotate_text = "___"
+
                
                 
         if (pred_max >= threshold):
-                percent=round(pred_max*100)
-                txt= " " + lbl_max + " (" + str(percent) + "%)"
-                camera.annotate_text = txt
+            percent=round(pred_max*100)
+            txt= " " + lbl_max + " (" + str(percent) + "%)"
+            print(txt)
                 
         
         time_elapsed(start_t2,"inference")

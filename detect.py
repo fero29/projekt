@@ -72,8 +72,8 @@ for i in range(10):
         
         #camera.capture(stream, 'rgb',use_video_port=True)
         ret, frame = camera.read()
-        image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        img = scale_image(image)
+        stream = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        img = scale_image(stream)
         
         time_elapsed(start_t1,"camera capture")
         #----------------------------------------------------------------

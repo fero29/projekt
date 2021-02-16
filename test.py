@@ -8,7 +8,9 @@ while(True):
     ret, frame = cap.read()
 
     # Our operations on the frame come here
-    #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2YCrCb)
+    #gray = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
+
+    print(frame.shape)
 
     # Display the resulting frame
     cv2.imshow('frame',frame)

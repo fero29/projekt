@@ -7,6 +7,7 @@ import time
 
 def scale_image(frame, new_size=(224, 224)):
   # Get the dimensions
+  print (frame.shape)
   height, width, _ = frame.shape # Image shape
   new_width, new_height = new_size # Target shape 
 

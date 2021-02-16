@@ -61,6 +61,12 @@ threshold=0.5
 
 
 camera = cv2.VideoCapture(0)
+if(camera.isOpened()):
+  print("camera opened")
+else:
+  print("camera error")
+
+  
 
 
 

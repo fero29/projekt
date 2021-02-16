@@ -59,7 +59,7 @@ size = input_shape[:2] if len(input_shape) == 3 else input_shape[1:3]
 threshold=0.5
 
 
-camera = cv2.VideoCapture(2)
+camera = cv2.VideoCapture(0)
 
 
 

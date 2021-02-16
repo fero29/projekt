@@ -59,11 +59,11 @@ size = input_shape[:2] if len(input_shape) == 3 else input_shape[1:3]
 threshold=0.5
 
 
-camera = cv2.VideoCapture(0)
+camera = cv2.VideoCapture(2)
 
 
 
-for i in range(10):
+for i in range(100):
         start_time = time.time()
         
         #----------------------------------------------------
@@ -72,8 +72,8 @@ for i in range(10):
         
         #camera.capture(stream, 'rgb',use_video_port=True)
         ret, frame = camera.read()
-        stream = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        img = scale_image(stream)
+        #stream = cv2.cvtColor(frame, cv2.COLOR_RGB2RGB)
+        img = scale_image(frame)
         
         time_elapsed(start_t1,"camera capture")
         #----------------------------------------------------------------
